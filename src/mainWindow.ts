@@ -4,6 +4,10 @@ import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWid
 import { viewModel } from "./viewModel";
 import { infoWindow } from "./infoWindow";
 
+
+/**
+ * Main window user interface
+ */
 export const mainWindow = window({
     title: "PathBuilder",
     width: 174,

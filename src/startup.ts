@@ -30,11 +30,8 @@ ui.registerShortcut(shortcutBuildModeOnUpDown)
 
 
 export function startup() {
-
-
   if (typeof ui !== "undefined") {
     const menuItemName = "PathBuilder";
     ui.registerMenuItem(menuItemName, () => mainWindow.open());
-    // ui.registerToolboxMenuItem(menuItemName, () => allWidgets.open());
   }
 }

@@ -9,6 +9,8 @@ export var buildType =  <BuildType>("straight")
 
 viewModel.spinnerWidthVal.subscribe((number) => tool.setConstraint(number))
 
+
+/// todo: clean up this mess
 export function activate() : void {
     tool.setConstraint(1)
     tool.activate()
@@ -34,17 +36,10 @@ export function startBuildStraightFreeform(): void {
 
 export function startBuildStraightFixedWidth(): void {
     buildType = "straight"
-    //debug("SPINNER: "+viewModel.spinnerWidthVal.get())
     tool.setConstraint(viewModel.spinnerWidthVal.get())
     tool.activate()
     tool.onSelect = (selection): void => onMapSelect(selection, buildType);   
 }
-
-export function startBuildUpDown(): void {
-    buildType = "up-down"
-    activate()
-}
-
 
 /**
  * OnClick for main "Build Leveled" Button
@@ -60,6 +55,7 @@ export function buttonStraightMainPress(): void {
 }
 
 /**
+ * OnClick for Leveled freeform rectangle
  * Start Leveled freeform rectangle building
  */
 export function buttonStraightFreeformPress(): void {
@@ -69,6 +65,7 @@ export function buttonStraightFreeformPress(): void {
 }
 
 /**
+ * OnClick for Leveled fixed width
  * Start Leveled build with fixed width
  */
 export function buttonStraightWidthPress(): void {

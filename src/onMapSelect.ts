@@ -6,8 +6,7 @@ import { mapTileSize } from "./mapSelectionTool";
 export function onMapSelect(selection: MapSelection, erection: BuildType): void {
     let range = toMapRange(selection)
 
-    debug(JSON.stringify(selection))
-    debug(`Selection from ${range?.leftTop.x}, ${range?.leftTop.y} to ${range?.rightBottom.x}, ${range?.rightBottom.y}`)
+    //debug(`Selection from ${range?.leftTop.x}, ${range?.leftTop.y} to ${range?.rightBottom.x}, ${range?.rightBottom.y}`)
 
 
     if (range != null){
@@ -33,7 +32,6 @@ export function onMapSelect(selection: MapSelection, erection: BuildType): void 
         })
 
         if (erection == "straight") {
-            debug("the tool is in straight mode")
             for (let xStep = range.leftTop.x; xStep <= range.rightBottom.x; xStep = xStep+mapTileSize) {
                 for (let yStep = range.leftTop.y; yStep <= range.rightBottom.y; yStep = yStep+mapTileSize) {
                     let e: FootpathPlaceArgs = {
@@ -62,9 +60,7 @@ export function onMapSelect(selection: MapSelection, erection: BuildType): void 
             // determine terrain profile from start point
             if (selection.end) {
                 if (selection.start.x == selection.end.x) {
-                    debug("this!!! >>>")
                     for (let yStep = selection.start.y; yStep <= selection.end.y; yStep += mapTileSize) {
-                        debug("cycle")
                         let title = map.getTile(selection.start.x, yStep)
                         
                         debug(JSON.stringify(tile.elements))

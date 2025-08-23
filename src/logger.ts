@@ -5,6 +5,7 @@
 // originaly licensed under MIT License
 // see ../license/mit_license_Basssiiie_ProxyPather}` */
 
+// todo: this cannot be hardcoded
 const isDevelopment:boolean = true
 
 /**
