@@ -1,27 +1,70 @@
-import { button, label, window } from "openrct2-flexui";
+import { absolute, button, groupbox, label, window } from "openrct2-flexui";
 import { viewModel } from "./viewModel";
+import { SpriteIds } from "./spriteIds";
 
 export const mainWindow = window({
-    title: "Footpath erector",
-    width: 200,
-    height: 100,
+    title: "PathBuilder",
+    width: 156,
+    height: 400,
     content: [
-        label({
-            text: "some info"
+        label({ //(todo) read somewhat version
+            text: "PathBuilder | v. 0-preview"
         }),
-        button({
-            text: "Activate erecting mode straight",
-            onClick() {
-                viewModel.erectionType = "straight"
-                viewModel.activate()
-            },
+        label({ //(idea) read current shortcuts
+            height: 30,
+            text: "Default shortcuts: {NEWLINE}CTRL+F CTR+G"
         }),
-        button({
-            text: "Activate erecting mode up/down",
-            onClick() {
-                viewModel.erectionType = "up-down"
-                viewModel.activate()
-            }
+
+        absolute({
+            width:150,
+            height: 120,
+            content: [
+                button({
+                    x: 58,  // 150/2-1/2*34
+                    y: 0,
+                    width: 34,
+                    height: 34,
+                    image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
+                    tooltip: "Build leveled",
+                    onClick() {
+                        viewModel.erectionType = "straight"
+                        viewModel.activate()
+                    },
+
+                }),
+                button({
+                    x: 0,
+                    y: 40,
+                    width: 46,
+                    height: 34,
+                    image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
+                    tooltip: "Freeform square",
+                    onClick() {
+                       
+                    },
+
+                })
+            ]
+        }),
+
+
+        absolute({
+            width:150,
+            height: 120,
+            content: [
+                button({
+                    x: 58,  // 150/2-1/2*34
+                    y:0
+                    ,width: 34,
+                    height: 34,
+                    image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
+                    tooltip: "Build slopes or copy a terrain",
+                    onClick() {
+                        viewModel.erectionType = "up-down"
+                        viewModel.activate()
+                    }
+                })
+            ]
         })
     ]
 })
