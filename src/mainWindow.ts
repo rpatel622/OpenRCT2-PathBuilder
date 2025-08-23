@@ -1,6 +1,7 @@
 import { absolute, button, label, spinner, window } from "openrct2-flexui";
 import { SpriteIds } from "./spriteIds";
-import { startBuildStraightFreeform } from "./actions";
+import { buttonStraightFreeformPress, buttonStraightWidthPress, startBuildStraightFreeform } from "./actions";
+import { viewModel } from "./viewModel";
 
 export const mainWindow = window({
     title: "PathBuilder",
@@ -24,6 +25,7 @@ export const mainWindow = window({
                     y: 0,
                     width: 34,
                     height: 34,
+                    border: true,
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
                     tooltip: "Build leveled",
                     onClick() {
@@ -37,11 +39,10 @@ export const mainWindow = window({
                     width: 46,
                     height: 34,
                     image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
+                    border: true,
                     tooltip: "Freeform square",
-                    onClick() {
-
-                    },
-
+                    isPressed: viewModel.buttonStraightFreeformPressed
+                    ,onClick: () => buttonStraightFreeformPress(),
                 }),
                 button({
                     x: 80,
@@ -49,15 +50,15 @@ export const mainWindow = window({
                     width: 25,
                     height: 25,
                     image: SpriteIds.SPR_MIRROR_ARROW,
+                    border: true,
                     tooltip: "Fixed width",
-                    onClick() {
-                        
-                    },
+                    isPressed: viewModel.buttonStraightWidthPressed
+                    ,onClick: () => buttonStraightWidthPress(),
 
                 }),
                 spinner({
                     x: 110,
-                    y: 45,
+                    y: 48,
                     width: 40,
                     height: 16,
                     value: 1,

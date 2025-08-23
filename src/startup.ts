@@ -1,22 +1,31 @@
-import { activateStraight, activateUpDown } from "./actions";
+import { activateUpDown, buttonStraightFreeformPress, buttonStraightWidthPress } from "./actions";
 import { mainWindow } from "./mainWindow";
 
 
-const shortcutBuildModeOnStraight: ShortcutDesc = {
-    id: "pathbuilder.mainwindow.buildstraight",
-    text: "Footpath Erector ON, straight",
+const shortcutBuildModeOnStraightFreeform: ShortcutDesc = {
+    id: "pathbuilder.mainwindow.buildstraightfreeform",
+    text: "PathBuilder: Leveled Freeform Rectangle",
     bindings: ["CTRL+F"],
-    callback: () => activateStraight()
+    callback: () => buttonStraightFreeformPress()
+}
+
+const shortcutBuildModeOnStraightWidth: ShortcutDesc = {
+    id: "pathbuilder.mainwindow.buildstraightwidth",
+    text: "PathBuilder: Leveled Fixed Width",
+    bindings: ["CTRL+G"],
+    callback: () => buttonStraightWidthPress()
 }
 
 const shortcutBuildModeOnUpDown: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildupdown",
-    text: "Footpath Erector ON, up-down",
-    bindings: ["CTRL+G"],
+    text: "PathBuilder: future void",
+    bindings: [""],
     callback: () => activateUpDown()
 }
 
-ui.registerShortcut(shortcutBuildModeOnStraight)
+ui.registerShortcut(shortcutBuildModeOnStraightFreeform)
+ui.registerShortcut(shortcutBuildModeOnStraightWidth)
+
 ui.registerShortcut(shortcutBuildModeOnUpDown)
 
 
