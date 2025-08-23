@@ -20,7 +20,7 @@ Building paths natural way, with mouse drag.
 - [ ] Dropper sucking nearest wall (fence)
 - [ ] Build modes above with fence
 - [ ] Build walls (feces) alone without path by using above mentioned
-
+- Open to suggestions, collaboration and etc.
 
 ## Building from source
 
