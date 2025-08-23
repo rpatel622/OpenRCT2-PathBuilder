@@ -2,13 +2,13 @@
 
 An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building paths. Preview version known as Footpath Erector. (*)
 
-Building paths natural way, with mouse drag.
+### Building paths natural way, with mouse drag.
 
 ![gif video of early version working](https://github.com/user-attachments/assets/feaa1567-02c3-4b36-adf2-ee13263bb673)
 
 ## Current state and goals of the project
 
-- [x] Dropper style of legacy paths (get style from object already present on map) (improve: differentiate tool icon when sucking in style/building)
+- [x] Dropper style sucking of legacy paths (get style from object already present on map) (improve: differentiate tool icon when sucking in style/building)
 - [ ] Dropper for new paths
 - [x] Build straight paths with mouse controled tool
 - [ ] Build freeform leveled rectangles of footpath (todo: gui)
