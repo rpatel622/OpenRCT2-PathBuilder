@@ -3,7 +3,7 @@
 import { startup } from "./startup";
 
 registerPlugin({
-	name: "Footpath Erector",
+	name: "PathBuilder",
 	version: "0.1",
 	authors: [ "tygrysek90" ],
 	type: "local",

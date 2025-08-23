@@ -1,4 +1,4 @@
-import { absolute, button, groupbox, label, window } from "openrct2-flexui";
+import { absolute, button, label, window } from "openrct2-flexui";
 import { viewModel } from "./viewModel";
 import { SpriteIds } from "./spriteIds";
 
@@ -27,7 +27,7 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
                     tooltip: "Build leveled",
                     onClick() {
-                        viewModel.erectionType = "straight"
+                        viewModel.buildType = "straight"
                         viewModel.activate()
                     },
 
@@ -40,7 +40,7 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
                     tooltip: "Freeform square",
                     onClick() {
-                       
+                        
                     },
 
                 })
@@ -60,7 +60,7 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
                     tooltip: "Build slopes or copy a terrain",
                     onClick() {
-                        viewModel.erectionType = "up-down"
+                        viewModel.buildType = "up-down"
                         viewModel.activate()
                     }
                 })
