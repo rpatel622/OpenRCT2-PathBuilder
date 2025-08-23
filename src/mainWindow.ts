@@ -3,6 +3,8 @@ import { SpriteIds } from "./spriteIds";
 import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWidthPress } from "./actions";
 import { viewModel } from "./viewModel";
 import { infoWindow } from "./infoWindow";
+import { bFreeformSqTooltip, bLeveledTooltip, currentLanguage, defaultKeysLabel, leveledPathsGroupBoxText } from "./localisation";
+
 
 
 /**
@@ -15,7 +17,7 @@ export const mainWindow = window({
     colours: [Colour["DarkBrown"], Colour["DarkBrown"]],
     content: [
         groupbox({
-            text: "Deafult shortcuts",
+            text: defaultKeysLabel.get(currentLanguage),
             content: [
                 label({ //(idea) read current shortcuts
                     height: 55,
@@ -26,7 +28,7 @@ export const mainWindow = window({
         
 
         groupbox({
-            text: "Leveled paths",
+            text: leveledPathsGroupBoxText.get(currentLanguage),
             content: [
                 absolute({
                     width:150,
@@ -39,7 +41,7 @@ export const mainWindow = window({
                             height: 34,
                             border: true,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
-                            tooltip: "Build leveled",
+                            tooltip: bLeveledTooltip.get(currentLanguage),
                             onClick: () => buttonStraightMainPress(),
 
 
@@ -51,7 +53,7 @@ export const mainWindow = window({
                             height: 34,
                             image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
                             border: true,
-                            tooltip: "Freeform square",
+                            tooltip: bFreeformSqTooltip.get(currentLanguage),
                             isPressed: viewModel.buttonStraightFreeformPressed,
                             onClick: () => buttonStraightFreeformPress(),
                         }),

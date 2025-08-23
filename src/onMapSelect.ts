@@ -8,7 +8,6 @@ export function onMapSelect(selection: MapSelection, erection: BuildType): void 
 
     //debug(`Selection from ${range?.leftTop.x}, ${range?.leftTop.y} to ${range?.rightBottom.x}, ${range?.rightBottom.y}`)
 
-
     if (range != null){
         let tile = map.getTile(selection.start.x/mapTileSize, selection.start.y/mapTileSize)
 
