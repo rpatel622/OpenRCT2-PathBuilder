@@ -4,6 +4,8 @@
  *  https://github.com/OpenRCT2/OpenRCT2/blob/develop/src/openrct2/SpriteIds.h
  */
 export enum SpriteIds {
+    SPR_MIRROR_ARROW = 5170,
+
     SPR_CONSTRUCTION_FOOTPATH_LAND =  5639,
     SPR_CONSTRUCTION_FOOTPATH_BRIDGE = 5640,
 

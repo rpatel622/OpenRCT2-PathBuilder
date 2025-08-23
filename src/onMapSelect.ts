@@ -1,9 +1,9 @@
-import { ErectionType } from "./commonTypes";
+import { BuildType } from "./commonTypes";
 import { debug } from "./logger";
 import { MapSelection, toMapRange } from "./mapSelection";
 import { mapTileSize } from "./mapSelectionTool";
 
-export function onMapSelect(selection: MapSelection, erection: ErectionType): void {
+export function onMapSelect(selection: MapSelection, erection: BuildType): void {
     let range = toMapRange(selection)
 
     debug(JSON.stringify(selection))

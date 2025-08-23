@@ -1,19 +1,19 @@
+import { activateStraight, activateUpDown } from "./actions";
 import { mainWindow } from "./mainWindow";
-import { viewModel } from "./viewModel";
 
 
 const shortcutBuildModeOnStraight: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildstraight",
     text: "Footpath Erector ON, straight",
     bindings: ["CTRL+F"],
-    callback: () => viewModel.activateStraight()
+    callback: () => activateStraight()
 }
 
 const shortcutBuildModeOnUpDown: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildupdown",
     text: "Footpath Erector ON, up-down",
     bindings: ["CTRL+G"],
-    callback: () => viewModel.activateUpDown()
+    callback: () => activateUpDown()
 }
 
 ui.registerShortcut(shortcutBuildModeOnStraight)

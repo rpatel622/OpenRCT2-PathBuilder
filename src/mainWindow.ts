@@ -1,6 +1,6 @@
-import { absolute, button, label, window } from "openrct2-flexui";
-import { viewModel } from "./viewModel";
+import { absolute, button, label, spinner, window } from "openrct2-flexui";
 import { SpriteIds } from "./spriteIds";
+import { startBuildStraightFreeform } from "./actions";
 
 export const mainWindow = window({
     title: "PathBuilder",
@@ -27,8 +27,7 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
                     tooltip: "Build leveled",
                     onClick() {
-                        viewModel.buildType = "straight"
-                        viewModel.activate()
+                        startBuildStraightFreeform()
                     },
 
                 }),
@@ -40,9 +39,29 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
                     tooltip: "Freeform square",
                     onClick() {
+
+                    },
+
+                }),
+                button({
+                    x: 80,
+                    y: 45,
+                    width: 25,
+                    height: 25,
+                    image: SpriteIds.SPR_MIRROR_ARROW,
+                    tooltip: "Fixed width",
+                    onClick() {
                         
                     },
 
+                }),
+                spinner({
+                    x: 110,
+                    y: 45,
+                    width: 40,
+                    height: 16,
+                    value: 1,
+                    tooltip: "Select width"
                 })
             ]
         }),
@@ -60,8 +79,7 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
                     tooltip: "Build slopes or copy a terrain",
                     onClick() {
-                        viewModel.buildType = "up-down"
-                        viewModel.activate()
+
                     }
                 })
             ]

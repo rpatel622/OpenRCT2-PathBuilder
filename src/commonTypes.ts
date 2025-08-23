@@ -1,1 +1,1 @@
-export type ErectionType = "straight" | "up-down";
+export type BuildType = "straight" | "up-down";
