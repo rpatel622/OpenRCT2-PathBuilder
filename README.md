@@ -2,9 +2,10 @@
 
 An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building paths. Preview version known as Footpath Erector. (*)
 
-### Building paths natural way, with mouse drag.
+### Building paths natural way, with mouse drag
 
-![gif video of early version working](https://github.com/user-attachments/assets/feaa1567-02c3-4b36-adf2-ee13263bb673)
+![PathBuilder](https://github.com/user-attachments/assets/ebeb5107-fb95-4f6f-900d-27993442d2df)
+
 
 ## Current state and goals of the project
 
