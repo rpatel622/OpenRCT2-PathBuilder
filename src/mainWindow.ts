@@ -1,6 +1,6 @@
-import { absolute, button, label, spinner, window } from "openrct2-flexui";
+import { absolute, button, label, spinner, twoway, window } from "openrct2-flexui";
 import { SpriteIds } from "./spriteIds";
-import { buttonStraightFreeformPress, buttonStraightWidthPress, startBuildStraightFreeform } from "./actions";
+import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWidthPress } from "./actions";
 import { viewModel } from "./viewModel";
 
 export const mainWindow = window({
@@ -28,9 +28,8 @@ export const mainWindow = window({
                     border: true,
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
                     tooltip: "Build leveled",
-                    onClick() {
-                        startBuildStraightFreeform()
-                    },
+                    onClick: () => buttonStraightMainPress(),
+
 
                 }),
                 button({
@@ -41,8 +40,8 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
                     border: true,
                     tooltip: "Freeform square",
-                    isPressed: viewModel.buttonStraightFreeformPressed
-                    ,onClick: () => buttonStraightFreeformPress(),
+                    isPressed: viewModel.buttonStraightFreeformPressed,
+                    onClick: () => buttonStraightFreeformPress(),
                 }),
                 button({
                     x: 80,
@@ -52,8 +51,8 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_MIRROR_ARROW,
                     border: true,
                     tooltip: "Fixed width",
-                    isPressed: viewModel.buttonStraightWidthPressed
-                    ,onClick: () => buttonStraightWidthPress(),
+                    isPressed: viewModel.buttonStraightWidthPressed,
+                    onClick: () => buttonStraightWidthPress(),
 
                 }),
                 spinner({
@@ -61,7 +60,10 @@ export const mainWindow = window({
                     y: 48,
                     width: 40,
                     height: 16,
-                    value: 1,
+                    minimum: 1,
+                    value: twoway(viewModel.spinnerWidthVal),
+                    maximum: 9,
+                    onChange: () => buttonStraightWidthPress(),
                     tooltip: "Select width"
                 })
             ]
@@ -78,10 +80,8 @@ export const mainWindow = window({
                     ,width: 34,
                     height: 34,
                     image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
-                    tooltip: "Build slopes or copy a terrain",
-                    onClick() {
-
-                    }
+                    tooltip: "(future) Build slopes or copy a terrain",
+                    disabled: true
                 })
             ]
         })

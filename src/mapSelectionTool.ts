@@ -184,11 +184,13 @@ function move(tool: MapSelectionTool, args: ToolEventArgs): void
 	tool._selection.end = location;
 
 	if (tool._constrainNoodle) {
+		debug(`tool._constrainNoodle ${tool._constrainNoodle}`)
+		
 		if (Math.abs(tool._selection.end.x - tool._selection.start.x) > Math.abs(tool._selection.end.y - tool._selection.start.y)) {
-			tool._selection.end.y = tool._selection.start.y
+			tool._selection.end.y = tool._selection.start.y + (tool._constrainNoodle - 1) * mapTileSize
 		}
 		else {
-			tool._selection.end.x = tool._selection.start.x
+			tool._selection.end.x = tool._selection.start.x + (tool._constrainNoodle - 1) * mapTileSize
 		}
 	}
 
