@@ -8,10 +8,11 @@ An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building 
 
 ## Current state and goals of the project
 
-- [x] Dropper style sucking of legacy paths (get style from object already present on map) (improve: differentiate tool icon when sucking in style/building)
+- [x] Dropper style sucking of legacy paths (get style from object already present on map) 
+- [ ] (improve: differentiate tool icon when sucking in style/building)
 - [ ] Dropper for new paths
 - [x] Build straight paths with mouse controled tool
-- [ ] Build freeform leveled rectangles of footpath (todo: gui)
+- [x] Build freeform leveled rectangles of footpath ~~(todo: gui)~~
 - [ ] Build ZigZags for Queueues
 - [ ] Build paths in continuous slope up or down
 - [ ] Build path copying terraing and placing "bridegs" ova water
