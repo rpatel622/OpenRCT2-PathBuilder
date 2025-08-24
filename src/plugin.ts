@@ -7,7 +7,7 @@ registerPlugin({
 	version: "0.1",
 	authors: [ "tygrysek90" ],
 	type: "local",
-	licence: "MIT",
+	licence: "GPL-3.0",
 	/**
 	 * This field determines which OpenRCT2 API version to use. It's best to always use the
 	 * latest release version, unless you want to use specific versions from a newer develop
