@@ -1,7 +1,7 @@
 import { BuildType } from "./commonTypes"
 import { MapSelectionTool, ToolMode } from "./mapSelectionTool"
-import { onMapSelectDoLeveledBuild } from "./onMapSelect"
-import { onMapSelect2 } from "./onMapSelect2"
+import { onMapSelectDoLeveledBuild } from "./onMapSelectDoLeveledBuild"
+import { onMapSelect2 } from "./onMapSelectDoUpDownBuild"
 import { viewModel } from "./viewModel"
 
 export var tool = new MapSelectionTool("proxy-pather", "path_down")
