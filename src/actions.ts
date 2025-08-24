@@ -29,10 +29,10 @@ export function startSelectingStraightFixedWidth(): void {
  * chooses freeform rectangle or fixed width based on ui lower button of choice pressed
  */
 export function buttonStraightMainPress(): void {
-    if (viewModel.buttonStraightFreeformPressed.get() == true) {
+    if (viewModel.buttonLeveledFreeformPressed.get() == true) {
         startSelectingStraightFreeform()
     }
-    if (viewModel.buttonStraightWidthPressed.get() == true) {
+    if (viewModel.buttonLeveledWidthPressed.get() == true) {
         startSelectingStraightFixedWidth()
     }
 }
@@ -42,8 +42,9 @@ export function buttonStraightMainPress(): void {
  * Start Leveled freeform rectangle building
  */
 export function buttonStraightFreeformPress(): void {
-    viewModel.buttonStraightFreeformPressed.set(true)
-    viewModel.buttonStraightWidthPressed.set(false)
+    viewModel.buttonLeveledMainDisabled.set(false)
+    viewModel.buttonLeveledFreeformPressed.set(true)
+    viewModel.buttonLeveledWidthPressed.set(false)
     startSelectingStraightFreeform()
 }
 
@@ -52,8 +53,9 @@ export function buttonStraightFreeformPress(): void {
  * Start Leveled build with fixed width
  */
 export function buttonStraightWidthPress(): void {
-    viewModel.buttonStraightWidthPressed.set(true)
-    viewModel.buttonStraightFreeformPressed.set(false)
+    viewModel.buttonLeveledMainDisabled.set(false)
+    viewModel.buttonLeveledWidthPressed.set(true)
+    viewModel.buttonLeveledFreeformPressed.set(false)
     startSelectingStraightFixedWidth()
 }
 
@@ -61,7 +63,12 @@ export function buttonStraightWidthPress(): void {
  * OnClick for UpDown button
  */
 export function buttonUpDownPress(): void {
-    buildType = "up-down"
+    viewModel.buttonLeveledMainDisabled.set(true)
+    viewModel.buttonLeveledWidthPressed.set(false)
+    viewModel.buttonLeveledFreeformPressed.set(false)
+    viewModel.buttonUpDownMainPressed.set(true)
+    viewModel.buttonUpDownCopyTerrainPressed.set(true)
+    tool.setConstraint(1)
     tool.activate()
     tool.onSelect = (selection): void => onMapSelectDoUpDownBuild(selection);   
 }

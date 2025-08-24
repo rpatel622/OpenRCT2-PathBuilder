@@ -9,7 +9,7 @@ defaultKeysLabel.pl_PL = "Pomyślne skróty"
 
 export const leveledPathsGroupBoxText = new stringLocalisabe("Leveled Paths")
 leveledPathsGroupBoxText.cs_CZ = "Rovné cesty"
-leveledPathsGroupBoxText.pl_PL = "Chodniki"
+leveledPathsGroupBoxText.pl_PL = "Chodniki poziomowe"
 
 export const bLeveledTooltip = new stringLocalisabe("Build leveled")
 bLeveledTooltip.cs_CZ = "Stavět v rovině"
@@ -22,3 +22,7 @@ export const bldgMustOriginFromExistingFootpath =
                       new stringLocalisabe("Building area must originate from existing footpath")
 bldgMustOriginFromExistingFootpath.cs_CZ = "Prostor pro stavbu musí být vyznačen od už stojícího chodníku"
 bldgMustOriginFromExistingFootpath.pl_PL = "Od chodnika prosze zaczancz"
+
+export const fixedWidthTip = new stringLocalisabe("Fixed width")
+
+export const selectWidthTip = new stringLocalisabe("Select width")

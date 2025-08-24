@@ -39,7 +39,8 @@ export const mainWindow = window({
                             y: 0,
                             width: 34,
                             height: 34,
-                            border: true,
+                            border: false,
+                            disabled: viewModel.buttonLeveledMainDisabled,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
                             tooltip: bLeveledTooltip.get(currentLanguage),
                             onClick: () => buttonStraightMainPress(),
@@ -52,9 +53,9 @@ export const mainWindow = window({
                             width: 46,
                             height: 34,
                             image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
-                            border: true,
+                            border: false,
                             tooltip: bFreeformSqTooltip.get(currentLanguage),
-                            isPressed: viewModel.buttonStraightFreeformPressed,
+                            isPressed: viewModel.buttonLeveledFreeformPressed,
                             onClick: () => buttonStraightFreeformPress(),
                         }),
                         button({
@@ -63,9 +64,9 @@ export const mainWindow = window({
                             width: 25,
                             height: 25,
                             image: SpriteIds.SPR_MIRROR_ARROW,
-                            border: true,
+                            border: false,
                             tooltip: fixedWidthTip.get(currentLanguage),
-                            isPressed: viewModel.buttonStraightWidthPressed,
+                            isPressed: viewModel.buttonLeveledWidthPressed,
                             onClick: () => buttonStraightWidthPress(),
 
                         }),
@@ -97,10 +98,24 @@ export const mainWindow = window({
                             y:0
                             ,width: 34,
                             height: 34,
+                            border: false,
+                            disabled: viewModel.buttonUpDownMainDisabled,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
                             tooltip: "Build sloped paths",
+                            isPressed: viewModel.buttonUpDownMainPressed,
                             onClick: () => buttonUpDownPress()
-                        })
+                        }),
+                        button({
+                            x: 0,
+                            y: 40,
+                            width: 32,
+                            height: 34,
+                            image: SpriteIds.SPR_G2_MAP_GEN_TERRAIN_TAB,
+                            border: false,
+                            tooltip: "Copy terrain",
+                            isPressed: viewModel.buttonUpDownCopyTerrainPressed,
+                            onClick: () => buttonUpDownPress(),
+                        }),
                     ]
                 }),  
             ]
