@@ -4,7 +4,7 @@ export const viewModel = {
     groupLeveled: {
     buttonMainDisabled: store<boolean>(false),
     buttonFreeformPressed: store<boolean>(false),
-    buttonWidthPressed: store<boolean>(true),
+    buttonWidthPressed: store<boolean>(false),
     spinnerWidthVal: store<number>(1),
     }
     ,
