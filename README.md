@@ -4,26 +4,26 @@ An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building 
 
 ### Building paths natural way, with mouse drag
 
-![PathBuilder](https://github.com/user-attachments/assets/ebeb5107-fb95-4f6f-900d-27993442d2df)
+![PathBuilder-v0 1](https://github.com/user-attachments/assets/ea1fe656-a5cd-4d74-b1f4-4f46ca9c5655)
 
 
 ## Current state and goals of the project
 
 - [x] Dropper style sucking of legacy paths (get style from object already present on map) 
 - [ ] (improve: differentiate tool icon when sucking in style/building)
-- [ ] Dropper for new paths
+- [x] Dropper for new paths
 - [x] Build straight paths with mouse controled tool
 - [x] Build freeform leveled rectangles of footpath ~~(todo: gui)~~
 - [ ] Build ZigZags for Queueues
-- [ ] Build paths in continuous slope up or down
-- [ ] Build path copying terraing and placing "bridegs" ova water
+- [x] Build paths in continuous slope up or down
+- [x] Build path copying terraing and placing "bridegs" ova water
 - [ ] Dropper sucking path furnishments (benches, bins...)
 - [ ] Build modes above with path furnisments
 - [ ] Dropper sucking nearest wall (fence)
 - [ ] Build modes above with fence
 - [ ] Build walls (feces) alone without path by using above mentioned
 - Open to suggestions, collaboration and etc.
-- [x] Able to be localised ... (almost forgot!)
+- [x] Able to be localised ... (almost forgot!) todo: half done
 
 ## Building from source
 
