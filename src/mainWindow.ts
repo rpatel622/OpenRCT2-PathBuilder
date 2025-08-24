@@ -1,9 +1,9 @@
 import { absolute, button, Colour, groupbox, label, LayoutDirection, spinner, twoway, window } from "openrct2-flexui";
 import { SpriteIds } from "./spriteIds";
-import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWidthPress } from "./actions";
+import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWidthPress, buttonUpDownPress } from "./actions";
 import { viewModel } from "./viewModel";
 import { infoWindow } from "./infoWindow";
-import { bFreeformSqTooltip, bLeveledTooltip, currentLanguage, defaultKeysLabel, leveledPathsGroupBoxText } from "./localisation";
+import { bFreeformSqTooltip, bLeveledTooltip, currentLanguage, defaultKeysLabel, fixedWidthTip, leveledPathsGroupBoxText, selectWidthTip } from "./localisation";
 
 
 
@@ -64,7 +64,7 @@ export const mainWindow = window({
                             height: 25,
                             image: SpriteIds.SPR_MIRROR_ARROW,
                             border: true,
-                            tooltip: "Fixed width",
+                            tooltip: fixedWidthTip.get(currentLanguage),
                             isPressed: viewModel.buttonStraightWidthPressed,
                             onClick: () => buttonStraightWidthPress(),
 
@@ -78,7 +78,7 @@ export const mainWindow = window({
                             value: twoway(viewModel.spinnerWidthVal),
                             maximum: 9,
                             onChange: () => buttonStraightWidthPress(),
-                            tooltip: "Select width"
+                            tooltip: selectWidthTip.get(currentLanguage)
                         })
                     ]
                 }),
@@ -86,7 +86,7 @@ export const mainWindow = window({
         }),
         
         groupbox({
-            text: "Slopy paths",
+            text: "Sloped paths",
             content: [
                 absolute({
                     width:150,
@@ -98,8 +98,8 @@ export const mainWindow = window({
                             ,width: 34,
                             height: 34,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
-                            tooltip: "(future) Build slopes or copy a terrain",
-                            disabled: true
+                            tooltip: "Build sloped paths",
+                            onClick: () => buttonUpDownPress()
                         })
                     ]
                 }),  

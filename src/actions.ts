@@ -1,7 +1,7 @@
 import { BuildType } from "./commonTypes"
 import { MapSelectionTool, ToolMode } from "./mapSelectionTool"
 import { onMapSelectDoLeveledBuild } from "./onMapSelectDoLeveledBuild"
-import { onMapSelect2 } from "./onMapSelectDoUpDownBuild"
+import { onMapSelectDoUpDownBuild } from "./onMapSelectDoUpDownBuild"
 import { viewModel } from "./viewModel"
 
 export var tool = new MapSelectionTool("proxy-pather", "path_down")
@@ -63,5 +63,5 @@ export function buttonStraightWidthPress(): void {
 export function buttonUpDownPress(): void {
     buildType = "up-down"
     tool.activate()
-    tool.onSelect = (selection): void => onMapSelect2(selection, buildType);   
+    tool.onSelect = (selection): void => onMapSelectDoUpDownBuild(selection);   
 }
