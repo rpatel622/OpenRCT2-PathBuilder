@@ -1,44 +1,27 @@
 import { BuildType } from "./commonTypes"
 import { MapSelectionTool, ToolMode } from "./mapSelectionTool"
-import { onMapSelect } from "./onMapSelect"
+import { onMapSelectDoLeveledBuild } from "./onMapSelect"
+import { onMapSelect2 } from "./onMapSelect2"
 import { viewModel } from "./viewModel"
 
 export var tool = new MapSelectionTool("proxy-pather", "path_down")
 export var toolMode = <ToolMode>("off")
 export var buildType =  <BuildType>("straight")
 
+// interactive change of width
 viewModel.spinnerWidthVal.subscribe((number) => tool.setConstraint(number))
 
 
-/// todo: clean up this mess
-export function activate() : void {
-    tool.setConstraint(1)
-    tool.activate()
-    tool.onSelect = (selection): void => onMapSelect(selection, buildType);   
-}
-
-export function activateUpDown():void {
-    buildType = "up-down"
-    activate()
-}
-
-export function activateStraight(): void {
-    buildType = "straight"
-    activate()
-}
-
-export function startBuildStraightFreeform(): void {
-    buildType = "straight"
+export function startSelectingStraightFreeform(): void {
     tool.remConstraint()
     tool.activate()
-    tool.onSelect = (selection): void => onMapSelect(selection, buildType);   
+    tool.onSelect = (selection): void => onMapSelectDoLeveledBuild(selection);   
 }
 
-export function startBuildStraightFixedWidth(): void {
-    buildType = "straight"
+export function startSelectingStraightFixedWidth(): void {
     tool.setConstraint(viewModel.spinnerWidthVal.get())
     tool.activate()
-    tool.onSelect = (selection): void => onMapSelect(selection, buildType);   
+    tool.onSelect = (selection): void => onMapSelectDoLeveledBuild(selection);   
 }
 
 /**
@@ -47,30 +30,38 @@ export function startBuildStraightFixedWidth(): void {
  */
 export function buttonStraightMainPress(): void {
     if (viewModel.buttonStraightFreeformPressed.get() == true) {
-        startBuildStraightFreeform()
+        startSelectingStraightFreeform()
     }
     if (viewModel.buttonStraightWidthPressed.get() == true) {
-        startBuildStraightFixedWidth()
+        startSelectingStraightFixedWidth()
     }
 }
 
 /**
- * OnClick for Leveled freeform rectangle
+ * OnClick for Leveled freeform rectangle button
  * Start Leveled freeform rectangle building
  */
 export function buttonStraightFreeformPress(): void {
     viewModel.buttonStraightFreeformPressed.set(true)
     viewModel.buttonStraightWidthPressed.set(false)
-    startBuildStraightFreeform()
+    startSelectingStraightFreeform()
 }
 
 /**
- * OnClick for Leveled fixed width
+ * OnClick for Leveled fixed width button
  * Start Leveled build with fixed width
  */
 export function buttonStraightWidthPress(): void {
     viewModel.buttonStraightWidthPressed.set(true)
     viewModel.buttonStraightFreeformPressed.set(false)
-    startBuildStraightFixedWidth()
+    startSelectingStraightFixedWidth()
 }
 
+/**
+ * OnClick for UpDown button
+ */
+export function buttonUpDownPress(): void {
+    buildType = "up-down"
+    tool.activate()
+    tool.onSelect = (selection): void => onMapSelect2(selection, buildType);   
+}

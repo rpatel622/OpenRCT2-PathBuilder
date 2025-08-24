@@ -1,4 +1,4 @@
-import { activateUpDown, buttonStraightFreeformPress, buttonStraightWidthPress } from "./actions";
+import { buttonStraightFreeformPress, buttonStraightWidthPress, buttonUpDownPress } from "./actions";
 import { mainWindow } from "./mainWindow";
 
 
@@ -20,7 +20,7 @@ const shortcutBuildModeOnUpDown: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildupdown",
     text: "PathBuilder: future void",
     bindings: [""],
-    callback: () => activateUpDown()
+    callback: () => buttonUpDownPress()
 }
 
 ui.registerShortcut(shortcutBuildModeOnStraightFreeform)
