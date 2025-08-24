@@ -6,7 +6,7 @@
 // see ../license/mit_license_Basssiiie_ProxyPather}` */
 
 // todo: this cannot be hardcoded
-const isDevelopment:boolean = true
+const isDevelopment:boolean = false
 
 /**
  * Logs a message is debug mode is enabled, or does nothing otherwise.
