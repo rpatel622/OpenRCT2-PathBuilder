@@ -28,8 +28,11 @@ export function getPathProperties(onTile: Tile): (FootpathPlaceArgs | null) {
     constructFlags: 0,
     }
 
+    let hasFootpath: boolean = false
+
     onTile.elements.forEach(element => {
         if (element.type == "footpath") {
+            hasFootpath = true
             if (element.slopeDirection != null) { //todo maybe? investigate!
                 footpathPlaceArgs.z = element.baseZ
             }
@@ -58,7 +61,12 @@ export function getPathProperties(onTile: Tile): (FootpathPlaceArgs | null) {
             }
         }
     })
-
-    return footpathPlaceArgs
+    
+    if (hasFootpath) { 
+        return footpathPlaceArgs
+    }
+    else {
+        return null
+    }
 
 }

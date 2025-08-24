@@ -17,3 +17,8 @@ bLeveledTooltip.pl_PL = "Tryb budowlany poziomowy"
 
 export const bFreeformSqTooltip = new stringLocalisabe("Freeform square")
 bFreeformSqTooltip.cs_CZ = "Libovolný obdelník"
+
+export const bldgMustOriginFromExistingFootpath = 
+                      new stringLocalisabe("Building area must originate from existing footpath")
+bldgMustOriginFromExistingFootpath.cs_CZ = "Prostor pro stavbu musí být vyznačen od už stojícího chodníku"
+bldgMustOriginFromExistingFootpath.pl_PL = "Od chodnika prosze zaczancz"

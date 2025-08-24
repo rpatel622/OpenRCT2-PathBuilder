@@ -5,6 +5,8 @@
 // originaly licensed under MIT License
 // see ./license/mit_license_Basssiiie_ProxyPather}` */
 
+import { getPathProperties } from "./getPathProperties";
+import { bldgMustOriginFromExistingFootpath as bldgMustOriginFromExistingFootpathError, currentLanguage } from "./localisation";
 import { debug } from "./logger";
 import { MapSelection, toMapRange } from "./mapSelection";
 
@@ -135,9 +137,16 @@ function down(tool: MapSelectionTool, args: ToolEventArgs): void
 
 	debug(`Tool: down at ${JSON.stringify(location)}.`);
 
-	tool._isDragging = true;
+	if (getPathProperties(map.getTile(location.x/mapTileSize, location.y/mapTileSize)) != null) {
+		tool._isDragging = true;
 
-	tool._selection = { start: location };
+		tool._selection = { start: location };
+	}
+	else {
+		ui.showError("[PathBuilder]", bldgMustOriginFromExistingFootpathError.get(currentLanguage))
+
+	}
+	
 }
 
 
