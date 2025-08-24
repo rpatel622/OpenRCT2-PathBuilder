@@ -6,21 +6,30 @@ const shortcutBuildModeOnStraightFreeform: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildstraightfreeform",
     text: "PathBuilder: Leveled Freeform Rectangle",
     bindings: ["CTRL+F"],
-    callback: () => buttonStraightFreeformPress()
+    callback() {
+      mainWindow.open()
+      buttonStraightFreeformPress()
+    },
 }
 
 const shortcutBuildModeOnStraightWidth: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildstraightwidth",
     text: "PathBuilder: Leveled Fixed Width",
     bindings: ["CTRL+G"],
-    callback: () => buttonStraightWidthPress()
+    callback() {
+      mainWindow.open()
+      buttonStraightWidthPress()
+    } 
 }
 
 const shortcutBuildModeOnUpDown: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildupdown",
     text: "PathBuilder: future void",
     bindings: [""],
-    callback: () => buttonUpDownPress()
+    callback() {
+      mainWindow.open()
+      buttonUpDownPress()
+    } 
 }
 
 ui.registerShortcut(shortcutBuildModeOnStraightFreeform)
