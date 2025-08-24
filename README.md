@@ -27,17 +27,21 @@ An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building 
 
 ## Building from source
 
-Since this is early stage, no releases yet, you have to build from source for yourself.
+Since this is early stage, no releases yet, you have to build from source for yourself 
 
-It should be as easy as:
+### Start by hand
+You have to **manualy statisfy** dependency to **`openrct2.d.ts`**, which is not included, as not to clutter the internet wires - you should have it on your system already, just copy or link it to `lib` - next to `put-openrct2.d.ts-here.md` - on systems with gnu command line tools it is of course possible to `$ wget https://raw.githubusercontent.com/OpenRCT2/OpenRCT2/develop/distribution/openrct2.d.ts`
 
+### Finnish by script
+(in root directory - where `rollup.config.js` resides)
 ```
 $ npm install
-$ npm install openrct2-flexui@next
 $ npm run build:dev
 ```
 
-This plugin uses [Simple OpenRCT2 plugin template with Typescript](https://github.com/Basssiiie/OpenRCT2-Simple-Typescript-Template) by [Basssiiie](https://github.com/Basssiiie). Detailed build instructions to be found in 'typescript-template-README.md'. It also uses [FlexUi](https://github.com/Basssiiie/OpenRCT2-FlexUI) by [Basssiiie](https://github.com/Basssiiie). It is not noted in build instructions that you need FlexUi (TODO, include FlexUi in install script)
+## Internal dependencies 
+
+This plugin uses [Simple OpenRCT2 plugin template with Typescript](https://github.com/Basssiiie/OpenRCT2-Simple-Typescript-Template) by [Basssiiie](https://github.com/Basssiiie). Detailed build instructions to be found in 'typescript-template-README.md'. It also uses [FlexUi](https://github.com/Basssiiie/OpenRCT2-FlexUI) by [Basssiiie](https://github.com/Basssiiie). 
 
 ## Contributing, bug reporting etc.
 
