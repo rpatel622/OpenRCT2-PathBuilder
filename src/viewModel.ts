@@ -1,14 +1,18 @@
 import { store } from "openrct2-flexui";
 
 export const viewModel = {
-    buttonLeveledMainDisabled: store<boolean>(false),
-    buttonLeveledFreeformPressed: store<boolean>(false),
-    buttonLeveledWidthPressed: store<boolean>(true),
+    groupLeveled: {
+    buttonMainDisabled: store<boolean>(false),
+    buttonFreeformPressed: store<boolean>(false),
+    buttonWidthPressed: store<boolean>(true),
     spinnerWidthVal: store<number>(1),
-
-    buttonUpDownMainDisabled: store<boolean>(false),
-    buttonUpDownMainPressed: store<boolean>(false),
-    buttonUpDownCopyTerrainPressed: store<boolean>(false)
+    }
+    ,
+    groupUpDown: {
+    buttonMainDisabled: store<boolean>(true),
+    buttonMainPressed: store<boolean>(false),
+    buttonCopyTerrainPressed: store<boolean>(false)
+    }
 }
 
 

@@ -21,7 +21,7 @@ export const mainWindow = window({
             content: [
                 label({ //(idea) read current shortcuts
                     height: 55,
-                    text: "Level build:{NEWLINE}| CTRL+F | CTRL+G |{NEWLINE}{NEWLINE}{GREY}Slopy build: (future){NEWLINE}|   ????     |"
+                    text: "Level build:{NEWLINE}| CTRL+F | CTRL+G |{NEWLINE}{NEWLINE}Sloped build: {NEWLINE}|  ALT+F  |"
                 }),
             ]
         }),
@@ -40,7 +40,7 @@ export const mainWindow = window({
                             width: 34,
                             height: 34,
                             border: false,
-                            disabled: viewModel.buttonLeveledMainDisabled,
+                            disabled: viewModel.groupLeveled.buttonMainDisabled,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
                             tooltip: bLeveledTooltip.get(currentLanguage),
                             onClick: () => buttonStraightMainPress(),
@@ -55,7 +55,7 @@ export const mainWindow = window({
                             image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
                             border: false,
                             tooltip: bFreeformSqTooltip.get(currentLanguage),
-                            isPressed: viewModel.buttonLeveledFreeformPressed,
+                            isPressed: viewModel.groupLeveled.buttonFreeformPressed,
                             onClick: () => buttonStraightFreeformPress(),
                         }),
                         button({
@@ -66,7 +66,7 @@ export const mainWindow = window({
                             image: SpriteIds.SPR_MIRROR_ARROW,
                             border: false,
                             tooltip: fixedWidthTip.get(currentLanguage),
-                            isPressed: viewModel.buttonLeveledWidthPressed,
+                            isPressed: viewModel.groupLeveled.buttonWidthPressed,
                             onClick: () => buttonStraightWidthPress(),
 
                         }),
@@ -76,7 +76,7 @@ export const mainWindow = window({
                             width: 40,
                             height: 16,
                             minimum: 1,
-                            value: twoway(viewModel.spinnerWidthVal),
+                            value: twoway(viewModel.groupLeveled.spinnerWidthVal),
                             maximum: 9,
                             onChange: () => buttonStraightWidthPress(),
                             tooltip: selectWidthTip.get(currentLanguage)
@@ -99,21 +99,21 @@ export const mainWindow = window({
                             ,width: 34,
                             height: 34,
                             border: false,
-                            disabled: viewModel.buttonUpDownMainDisabled,
+                            disabled: viewModel.groupUpDown.buttonMainDisabled,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
                             tooltip: "Build sloped paths",
-                            isPressed: viewModel.buttonUpDownMainPressed,
+                            isPressed: viewModel.groupUpDown.buttonMainPressed,
                             onClick: () => buttonUpDownPress()
                         }),
                         button({
                             x: 0,
                             y: 40,
-                            width: 32,
+                            width: 30,
                             height: 34,
                             image: SpriteIds.SPR_G2_MAP_GEN_TERRAIN_TAB,
                             border: false,
                             tooltip: "Copy terrain",
-                            isPressed: viewModel.buttonUpDownCopyTerrainPressed,
+                            isPressed: viewModel.groupUpDown.buttonCopyTerrainPressed,
                             onClick: () => buttonUpDownPress(),
                         }),
                     ]
@@ -127,7 +127,7 @@ export const mainWindow = window({
             direction: LayoutDirection.Horizontal,
             content: [
                 label({ //(todo) read somewhat version
-                    text: "{YELLOW}PathBuilder{NEWLINE}{TOPAZ}v. 0-preview"
+                    text: "{YELLOW}PathBuilder{NEWLINE}{TOPAZ}v. 0.1"
                 }),
                 button({
                     width: 30,

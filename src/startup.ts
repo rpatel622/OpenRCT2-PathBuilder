@@ -24,8 +24,8 @@ const shortcutBuildModeOnStraightWidth: ShortcutDesc = {
 
 const shortcutBuildModeOnUpDown: ShortcutDesc = {
     id: "pathbuilder.mainwindow.buildupdown",
-    text: "PathBuilder: future void",
-    bindings: [""],
+    text: "PathBuilder: Path on terrain",
+    bindings: ["ALT+F"],
     callback() {
       mainWindow.open()
       buttonUpDownPress()

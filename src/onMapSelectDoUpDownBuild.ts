@@ -238,120 +238,122 @@ export function onMapSelectDoUpDownBuild(selection: MapSelection): void {
 
             let fPA = getPathProperties( map.getTile(selection.start.x/mapTileSize, selection.start.y/mapTileSize) )
 
+
             tiles.forEach(tile => {
-                tile.elements.forEach(element => {
-                    if (element.type == "surface") {
-                        debug(`surface: ${element.baseZ}, slope bin ${element.slope.toString(2)}, , slope dec ${element.slope.toString()}`)
-                        if (fPA != null) {
-                            fPA.slope = 0
-                            fPA.z = element.baseZ
-                            fPA.x = tile.x*mapTileSize
-                            fPA.y = tile.y*mapTileSize
-                            // SW
-                            switch (element.slope) {
-                                case dirEqualSlopeUp(direction): {
-                                    fPA.slope = wayToSlope(direction)
-                                    fPA.z = element.baseZ
-                                    break 
-                                }
-                                case dirEqualCornerUp1(direction): {
-                                    fPA.slope = wayToSlope(direction)
-                                    fPA.z = element.baseZ+6
-                                    break
-                                }
-                                case dirEqualCornerUp2(direction): {
-                                    fPA.slope = wayToSlope(direction)
-                                    fPA.z = element.baseZ+6
-                                    break
-                                }
-                                case dirCornerDown1(opositeOfdirection(direction))+kTileSlopeDiagonalFlag: {
-                                    fPA.slope = wayToSlope(direction)
-                                    fPA.z = element.baseZ+16
-                                    break
-                                }
-                                case dirCornerDown2(opositeOfdirection(direction))+kTileSlopeDiagonalFlag: {
-                                    fPA.slope = wayToSlope(direction)
-                                    fPA.z = element.baseZ+16
-                                    break
-                                }
-                                case dirRightSlopeUp(direction): {
-                                    fPA.z = element.baseZ + 16
-                                    break
-                                }
-                                case dirLeftSlopeUp(direction): {
-                                    fPA.z = element.baseZ + 16
-                                    break
-                                }
-                                case dirEqualSlopeUp(opositeOfdirection(direction)): {
-                                    fPA.slope = wayToSlope(opositeOfdirection(direction))
-                                    fPA.z = element.baseZ
-                                    break
-                                }
-                                case dirEqualCornerUp1(opositeOfdirection(direction)): {
-                                    fPA.slope = wayToSlope(opositeOfdirection(direction))
-                                    fPA.z = element.baseZ+6
-                                    break
+                    tile.elements.forEach(element => {
+                        if (element.type == "surface") {
 
-                                }
-                                case dirEqualCornerUp2(opositeOfdirection(direction)): {
-                                    fPA.slope = wayToSlope(opositeOfdirection(direction))
-                                    fPA.z = element.baseZ+6
-                                    break
 
-                                }
-                                case dirCornerDown1(direction)+kTileSlopeDiagonalFlag: {
-                                    fPA.slope = wayToSlope(opositeOfdirection(direction))
-                                    fPA.z = element.baseZ+16
-                                    break
-                                }
-                                case dirCornerDown2(direction)+kTileSlopeDiagonalFlag: {
-                                    fPA.slope = wayToSlope(opositeOfdirection(direction))
-                                    fPA.z = element.baseZ+16
-                                    break
-                                }  
-                                // corners down
-                                case kTileSlopeNCornerDown: {
-                                    fPA.slope = 0
-                                    fPA.z = element.baseZ+16    
-                                    break
-                                }
-                                case kTileSlopeECornerDown: {
-                                    fPA.slope = 0
-                                    fPA.z = element.baseZ+16    
-                                    break
-                                }
-                                case kTileSlopeSCornerDown: {
-                                    fPA.slope = 0
-                                    fPA.z = element.baseZ+16    
-                                    break
-                                }
-                                case kTileSlopeWCornerDown: {
-                                    fPA.slope = 0
-                                    fPA.z = element.baseZ+16    
-                                    break
-                                }
-                                // grand canyons :)
-                                case kTileSlopeNSValley: {
-                                    fPA.slope = 0
-                                    fPA.z = element.baseZ+16    
-                                    break
-                                }
-                                case kTileSlopeWEValley: {
-                                    fPA.slope = 0
-                                    fPA.z = element.baseZ+16    
-                                    break
-                                }
-                            }
+                            debug(`surface: ${element.baseZ}, slope bin ${element.slope.toString(2)}, , slope dec ${element.slope.toString()}`)
+                            if (fPA != null) {
+                                fPA.slope = 0
+                                fPA.z = element.baseZ
+                                fPA.x = tile.x*mapTileSize
+                                fPA.y = tile.y*mapTileSize
                                 
+                                if (element.waterHeight == 0) {
+                                    switch (element.slope) {
+                                        case dirEqualSlopeUp(direction): {
+                                            fPA.slope = wayToSlope(direction)
+                                            fPA.z = element.baseZ
+                                            break 
+                                        }
+                                        case dirEqualCornerUp1(direction): {
+                                            fPA.slope = wayToSlope(direction)
+                                            fPA.z = element.baseZ+6
+                                            break
+                                        }
+                                        case dirEqualCornerUp2(direction): {
+                                            fPA.slope = wayToSlope(direction)
+                                            fPA.z = element.baseZ+6
+                                            break
+                                        }
+                                        case dirCornerDown1(opositeOfdirection(direction))+kTileSlopeDiagonalFlag: {
+                                            fPA.slope = wayToSlope(direction)
+                                            fPA.z = element.baseZ+16
+                                            break
+                                        }
+                                        case dirCornerDown2(opositeOfdirection(direction))+kTileSlopeDiagonalFlag: {
+                                            fPA.slope = wayToSlope(direction)
+                                            fPA.z = element.baseZ+16
+                                            break
+                                        }
+                                        case dirRightSlopeUp(direction): {
+                                            fPA.z = element.baseZ + 16
+                                            break
+                                        }
+                                        case dirLeftSlopeUp(direction): {
+                                            fPA.z = element.baseZ + 16
+                                            break
+                                        }
+                                        case dirEqualSlopeUp(opositeOfdirection(direction)): {
+                                            fPA.slope = wayToSlope(opositeOfdirection(direction))
+                                            fPA.z = element.baseZ
+                                            break
+                                        }
+                                        case dirEqualCornerUp1(opositeOfdirection(direction)): {
+                                            fPA.slope = wayToSlope(opositeOfdirection(direction))
+                                            fPA.z = element.baseZ+6
+                                            break
 
-                            
-                            
-                            context.executeAction("footpathplace", fPA)
+                                        }
+                                        case dirEqualCornerUp2(opositeOfdirection(direction)): {
+                                            fPA.slope = wayToSlope(opositeOfdirection(direction))
+                                            fPA.z = element.baseZ+6
+                                            break
 
+                                        }
+                                        case dirCornerDown1(direction)+kTileSlopeDiagonalFlag: {
+                                            fPA.slope = wayToSlope(opositeOfdirection(direction))
+                                            fPA.z = element.baseZ+16
+                                            break
+                                        }
+                                        case dirCornerDown2(direction)+kTileSlopeDiagonalFlag: {
+                                            fPA.slope = wayToSlope(opositeOfdirection(direction))
+                                            fPA.z = element.baseZ+16
+                                            break
+                                        }  
+                                        // corners down
+                                        case kTileSlopeNCornerDown: {
+                                            fPA.slope = 0
+                                            fPA.z = element.baseZ+16    
+                                            break
+                                        }
+                                        case kTileSlopeECornerDown: {
+                                            fPA.slope = 0
+                                            fPA.z = element.baseZ+16    
+                                            break
+                                        }
+                                        case kTileSlopeSCornerDown: {
+                                            fPA.slope = 0
+                                            fPA.z = element.baseZ+16    
+                                            break
+                                        }
+                                        case kTileSlopeWCornerDown: {
+                                            fPA.slope = 0
+                                            fPA.z = element.baseZ+16    
+                                            break
+                                        }
+                                        // grand canyons :)
+                                        case kTileSlopeNSValley: {
+                                            fPA.slope = 0
+                                            fPA.z = element.baseZ+16    
+                                            break
+                                        }
+                                        case kTileSlopeWEValley: {
+                                            fPA.slope = 0
+                                            fPA.z = element.baseZ+16    
+                                            break
+                                        }
+                                    }
+                                }
+                                else { // just build on water... 
+                                    fPA.z = element.waterHeight
+                                }
+                                context.executeAction("footpathplace", fPA)
+                            }
                         }
-                        
-                    }
-                });
+                    });
             });
         }
     }
