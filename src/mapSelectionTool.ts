@@ -6,7 +6,6 @@
 // see ./license/mit_license_Basssiiie_ProxyPather}` */
 
 import { getPathProperties } from "./getPathProperties";
-import { bldgMustOriginFromExistingFootpath as bldgMustOriginFromExistingFootpathError, currentLanguage } from "./localisation";
 import { debug } from "./logger";
 import { MapSelection, toMapRange } from "./mapSelection";
 
@@ -143,7 +142,7 @@ function down(tool: MapSelectionTool, args: ToolEventArgs): void
 		tool._selection = { start: location };
 	}
 	else {
-		ui.showError("[PathBuilder]", bldgMustOriginFromExistingFootpathError.get(currentLanguage))
+		ui.showError("[PathBuilder]", "Building must originate from existing path")
 
 	}
 	

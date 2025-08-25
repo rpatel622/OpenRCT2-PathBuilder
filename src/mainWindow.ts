@@ -3,8 +3,6 @@ import { SpriteIds } from "./spriteIds";
 import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWidthPress, buttonUpDownPress } from "./actions";
 import { viewModel } from "./viewModel";
 import { infoWindow } from "./infoWindow";
-import { bFreeformSqTooltip, bLeveledTooltip, currentLanguage, defaultKeysLabel, fixedWidthTip, leveledPathsGroupBoxText, selectWidthTip } from "./localisation";
-
 
 
 /**
@@ -17,18 +15,18 @@ export const mainWindow = window({
     colours: [Colour["DarkBrown"], Colour["DarkBrown"]],
     content: [
         groupbox({
-            text: defaultKeysLabel.get(currentLanguage),
+            text: viewModel.groupDefKeys.label1,
             content: [
                 label({ //(idea) read current shortcuts
                     height: 55,
-                    text: "Level build:{NEWLINE}| CTRL+F | CTRL+G |{NEWLINE}{NEWLINE}Sloped build: {NEWLINE}|  ALT+F  |"
+                    text: viewModel.groupDefKeys.label2
                 }),
             ]
         }),
         
 
         groupbox({
-            text: leveledPathsGroupBoxText.get(currentLanguage),
+            text: viewModel.groupLeveled.text,
             content: [
                 absolute({
                     width:150,
@@ -42,7 +40,7 @@ export const mainWindow = window({
                             border: false,
                             disabled: viewModel.groupLeveled.buttonMainDisabled,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_LAND,
-                            tooltip: bLeveledTooltip.get(currentLanguage),
+                            tooltip: viewModel.groupLeveled.buttonMainTip,
                             onClick: () => buttonStraightMainPress(),
 
 
@@ -54,7 +52,7 @@ export const mainWindow = window({
                             height: 34,
                             image: SpriteIds.SPR_G2_LAND_TOOL_SIZE_6,
                             border: false,
-                            tooltip: bFreeformSqTooltip.get(currentLanguage),
+                            tooltip: viewModel.groupLeveled.buttonFreeformTip,
                             isPressed: viewModel.groupLeveled.buttonFreeformPressed,
                             onClick: () => buttonStraightFreeformPress(),
                         }),
@@ -65,7 +63,7 @@ export const mainWindow = window({
                             height: 25,
                             image: SpriteIds.SPR_MIRROR_ARROW,
                             border: false,
-                            tooltip: fixedWidthTip.get(currentLanguage),
+                            tooltip: viewModel.groupLeveled.buttonWidthTip,
                             isPressed: viewModel.groupLeveled.buttonWidthPressed,
                             onClick: () => buttonStraightWidthPress(),
 
@@ -79,7 +77,7 @@ export const mainWindow = window({
                             value: twoway(viewModel.groupLeveled.spinnerWidthVal),
                             maximum: 9,
                             onChange: () => buttonStraightWidthPress(),
-                            tooltip: selectWidthTip.get(currentLanguage)
+                            tooltip: viewModel.groupLeveled.buttonWidthTip
                         })
                     ]
                 }),
@@ -140,4 +138,7 @@ export const mainWindow = window({
             ]
         })
     ],
+    onOpen() {
+        viewModel.currentLanguage = context.configuration.get("general.language") ?? 'en-GB'
+    },
 })
