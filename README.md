@@ -23,7 +23,7 @@ An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building 
 - [ ] Build modes above with fence
 - [ ] Build walls (feces) alone without path by using above mentioned
 - Open to suggestions, collaboration and etc.
-- [x] Able to be localised ... (almost forgot!) todo: half done
+- [ ] Localisation of plugin (for now abandoned because of problems with runtime setting of tooltips)
 
 
 

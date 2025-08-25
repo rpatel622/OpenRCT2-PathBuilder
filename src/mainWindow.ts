@@ -3,6 +3,7 @@ import { SpriteIds } from "./spriteIds";
 import { buttonStraightFreeformPress, buttonStraightMainPress, buttonStraightWidthPress, buttonUpDownPress } from "./actions";
 import { viewModel } from "./viewModel";
 import { infoWindow } from "./infoWindow";
+import { pluginVersion } from "./version";
 
 
 /**
@@ -85,7 +86,7 @@ export const mainWindow = window({
         }),
         
         groupbox({
-            text: "Sloped paths",
+            text: viewModel.groupUpDown.text,
             content: [
                 absolute({
                     width:150,
@@ -99,7 +100,7 @@ export const mainWindow = window({
                             border: false,
                             disabled: viewModel.groupUpDown.buttonMainDisabled,
                             image: SpriteIds.SPR_CONSTRUCTION_FOOTPATH_BRIDGE,
-                            tooltip: "Build sloped paths",
+                            tooltip: viewModel.groupUpDown.buttonMainTip,
                             isPressed: viewModel.groupUpDown.buttonMainPressed,
                             onClick: () => buttonUpDownPress()
                         }),
@@ -110,7 +111,7 @@ export const mainWindow = window({
                             height: 34,
                             image: SpriteIds.SPR_G2_MAP_GEN_TERRAIN_TAB,
                             border: false,
-                            tooltip: "Copy terrain",
+                            tooltip: viewModel.groupUpDown.buttonCopyTerrainTip,
                             isPressed: viewModel.groupUpDown.buttonCopyTerrainPressed,
                             onClick: () => buttonUpDownPress(),
                         }),
@@ -121,11 +122,11 @@ export const mainWindow = window({
 
 
         groupbox({
-            text: "Info & About",
+            text: viewModel.groupAbout.text,
             direction: LayoutDirection.Horizontal,
             content: [
-                label({ //(todo) read somewhat version
-                    text: "{YELLOW}PathBuilder{NEWLINE}{TOPAZ}v. 0.1"
+                label({ 
+                    text: `{YELLOW}PathBuilder{NEWLINE}{TOPAZ}${pluginVersion}`
                 }),
                 button({
                     width: 30,
@@ -133,12 +134,10 @@ export const mainWindow = window({
                     image: SpriteIds.SPR_TAB_KIOSKS_AND_FACILITIES_0,
                     border: true,
                     onClick: () => infoWindow.open(),
-                    tooltip: "About this plugin"
+                    tooltip: viewModel.groupAbout.buttonInfoTip
                 })
             ]
         })
     ],
-    onOpen() {
-        viewModel.currentLanguage = context.configuration.get("general.language") ?? 'en-GB'
-    },
+
 })
