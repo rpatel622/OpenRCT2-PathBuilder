@@ -25,9 +25,13 @@ An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building 
 - Open to suggestions, collaboration and etc.
 - [x] Able to be localised ... (almost forgot!) todo: half done
 
-## Building from source
 
-Since this is early stage, no releases yet, you have to build from source for yourself 
+
+## Releases
+Althought this is early stage, there is first release published (look right and a bit up --->) or [here for v0.1 "Slopy ways"](https://github.com/tygrysek90/OpenRCT2-PathBuilder/releases/tag/v0.1)
+
+
+## Build from source
 
 ### Start by hand
 You have to **manualy statisfy** dependency to **`openrct2.d.ts`**, which is not included, as not to clutter the internet wires - you should have it on your system already, just copy or link it to `lib` - next to `put-openrct2.d.ts-here.md` - on systems with gnu command line tools it is of course possible to `$ wget https://raw.githubusercontent.com/OpenRCT2/OpenRCT2/develop/distribution/openrct2.d.ts`
