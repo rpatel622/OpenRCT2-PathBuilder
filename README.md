@@ -6,30 +6,20 @@ An [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) plugin focusing on building 
 
 ![PathBuilder-v0 1](https://github.com/user-attachments/assets/ea1fe656-a5cd-4d74-b1f4-4f46ca9c5655)
 
+## Features of the project
 
-## Current state and goals of the project
+- Dropper style sucking of legacy paths (get style from object already present on map) 
+- Dropper for new paths
+- Build straight paths with mouse controled tool
+- Build freeform leveled rectangles of footpath
+- Build paths in continuous slope up or down
+- Build path copying terraing and placing "bridges" over water
 
-- [x] Dropper style sucking of legacy paths (get style from object already present on map) 
-- [ ] (improve: differentiate tool icon when sucking in style/building)
-- [x] Dropper for new paths
-- [x] Build straight paths with mouse controled tool
-- [x] Build freeform leveled rectangles of footpath ~~(todo: gui)~~
-- [ ] Build ZigZags for Queueues
-- [x] Build paths in continuous slope up or down
-- [x] Build path copying terraing and placing "bridegs" ova water
-- [ ] Dropper sucking path furnishments (benches, bins...)
-- [ ] Build modes above with path furnisments
-- [ ] Dropper sucking nearest wall (fence)
-- [ ] Build modes above with fence
-- [ ] Build walls (feces) alone without path by using above mentioned
-- Open to suggestions, collaboration and etc.
-- [ ] Localisation of plugin (for now abandoned because of problems with runtime setting of tooltips)
+## Release
+Althought this project lived shortly and primarily served as demonstration, there was first release published [v0.1 "Slopy ways"](https://github.com/tygrysek90/OpenRCT2-PathBuilder/releases/tag/v0.1)
 
-
-
-## Releases
-Althought this is early stage, there is first release published (look right and a bit up --->) or [here for v0.1 "Slopy ways"](https://github.com/tygrysek90/OpenRCT2-PathBuilder/releases/tag/v0.1)
-
+## Archived status
+**This repository goes to archived state, since features brought by this plugin are being implemented into OpenRCT2 itself**. I spend a very nice time coding this and had lots of fun. I would like to use these few lines to once again thank to everyone in OpenRCT2 community - for positive feedback, support and everything.
 
 ## Build from source
 
