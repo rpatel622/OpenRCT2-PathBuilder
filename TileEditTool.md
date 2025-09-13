@@ -1,3 +1,7 @@
+## Algorithm Selection
+- The UI now includes a dropdown to select the algorithm for connecting A and B.
+- Supported: Straight Line, Manhattan, Zigzag (demo), and A* (experimental placeholder).
+- The selected algorithm is used when building the path.
 ## Compatibility Note: Keyboard Events
 - For OpenRCT2 scripting, keyboard events are handled via `context.input.on('keydown', ...)`.
 ## Keyboard Editing

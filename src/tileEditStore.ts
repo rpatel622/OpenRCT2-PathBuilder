@@ -20,7 +20,8 @@ export const tileEditStore = {
     editing: store<"start"|"end"|null>(null),
     style: store<any|null>(null),
     canBuild: store<boolean>(false),
-    readout: store<string>("")
+    readout: store<string>(""),
+    algorithmIndex: store<number>(0), // 0: Straight Line, 1: Manhattan, 2: A*, 3: Zigzag, 4: Max Straight Edges
 };
 
 /**
